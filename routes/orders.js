@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const itemsCtrl = require('../controllers/items.js');
+const ordersCtrl = require('../controllers/orders.js');
 const Order = require('./models/order');
 const router = Router();
 
-router.post('/', itemsCtrl.createItem);
+router.post('/', ordersCtrl.createItem);
 app.post('/orders', async (req, res) => {
     try {
       const newOrder = new Order(req.body);
