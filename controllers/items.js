@@ -1,4 +1,4 @@
-const Item = require('./models/item');
+const Item = require('./models/Item.js');
 
 // Create a new item
 app.post('/items', async (req, res) => {
