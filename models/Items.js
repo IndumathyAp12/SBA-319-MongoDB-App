@@ -7,6 +7,8 @@ const itemSchema = new Schema({
   description: String,
 }, { timestamps: true });
 
+itemSchema.index({ name: 1 });
 const Item = mongoose.model('Item', itemSchema);
+
 
 module.exports = Item;
