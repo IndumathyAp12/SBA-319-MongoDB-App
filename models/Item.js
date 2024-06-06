@@ -5,7 +5,7 @@ const itemSchema = new Schema({
   name: {
     type: String,
     required: [true, 'Name is required'],
-    minlength: [3, 'Name must be at least 4 characters long'],
+    minlength: [4, 'Name must be at least 4 characters long'],
     maxlength: [100, 'Name must be less than 100 characters long']
   },
   quantity: {
@@ -19,7 +19,7 @@ const itemSchema = new Schema({
   },
   description: {
     type: String,
-    maxlength: [500, 'Description must be less than 200 characters long']
+    maxlength: [200, 'Description must be less than 200 characters long']
   }
 }, { timestamps: true });
 
