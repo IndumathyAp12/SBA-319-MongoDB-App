@@ -2,7 +2,6 @@
 require('dotenv').config();
 // Requiring express
 const express = require('express');
-const mongoose = require('./config/db-connection');
 // Creating the express server and storing inside the app variable
 const app = express();
 // Port in which the server will run on
@@ -26,6 +25,10 @@ app.use((req, res, next) => {
 app.use('/users', userRouter);
 app.use('/items',itemRouter);
 app.use('/orders',orderRouter);
+
+app.get("/",(req,res) => {
+  res.send('<h1>Fruit Shop</h1>');
+});
 
 // Error Handling Middlware
 app.use((err, req, res, next) => {

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const {Schema, model} = require('../config/db-connection');
 
 const itemSchema = new Schema({
   name: {
@@ -27,6 +26,4 @@ const itemSchema = new Schema({
 // Indexes
 itemSchema.index({ name: 1 });
 
-const Item = mongoose.model('Item', itemSchema);
-
-module.exports = Item;
+module.exports  = model('Item', itemSchema);

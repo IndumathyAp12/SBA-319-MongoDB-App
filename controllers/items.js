@@ -1,4 +1,4 @@
-const Item = require('../models/Item.js');
+const Item = require('../models/Item');
 
 module.exports = {
   createItem,
@@ -12,16 +12,16 @@ async function createItem(req, res) {
   try {
     const newItem = new Item(req.body);
     await newItem.save();
-    res.status(201).send(newItem);
+    res.status(201).json(newItem);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json(error.message);
   }
 }
 
 async function getAllItems(req, res) {
   try {
     const items = await Item.find({});
-    res.status(200).send(items);
+    res.status(200).json(items);
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -33,7 +33,7 @@ async function getItemById(req, res) {
     if (!item) {
       return res.status(404).send('Item not found');
     }
-    res.status(200).send(item);
+    res.status(200).json(item);
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -45,7 +45,7 @@ async function updateItem(req, res) {
     if (!item) {
       return res.status(404).send('Item not found');
     }
-    res.status(200).send(item);
+    res.status(200).json(item);
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -57,7 +57,7 @@ async function deleteItem(req, res) {
     if (!item) {
       return res.status(404).send('Item not found');
     }
-    res.status(200).send(item);
+    res.status(200).json(item);
   } catch (error) {
     res.status(500).send(error.message);
   }

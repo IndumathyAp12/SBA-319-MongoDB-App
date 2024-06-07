@@ -12,16 +12,16 @@ async function createUser(req, res) {
   try {
     const user = new User(req.body);
     await user.save();
-    res.status(201).send(user);
+    res.status(200).json(user);
   } catch (err) {
-    res.status(400).send(err.message);
+    res.status(400).json(err.message);
   }
 }
 
 async function getAllUsers(req, res) {
   try {
     const users = await User.find({});
-    res.status(200).send(users);
+    res.status(200).json(users);
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -33,7 +33,7 @@ async function getUserById(req, res) {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    res.status(200).send(user);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -45,9 +45,9 @@ async function updateUser(req, res) {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    res.status(200).send(user);
+    res.status(200).json(updatedUser);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).json(error.message);
   }
 }
 
@@ -57,7 +57,7 @@ async function deleteUser(req, res) {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    res.status(200).send(user);
+    res.status(200).json(deletedUser);
   } catch (error) {
     res.status(500).send(error.message);
   }
