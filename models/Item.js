@@ -6,7 +6,8 @@ const itemSchema = new Schema({
     type: String,
     required: [true, 'Name is required'],
     minlength: [4, 'Name must be at least 4 characters long'],
-    maxlength: [100, 'Name must be less than 100 characters long']
+    maxlength: [100, 'Name must be less than 100 characters long'],
+    unique: true,
   },
   quantity: {
     type: Number,
@@ -14,17 +15,17 @@ const itemSchema = new Schema({
     min: [0, 'Quantity cannot be negative'],
     validate: {
       validator: Number.isInteger,
-      message: 'Quantity must be an integer'
-    }
+      message: 'Quantity must be an integer',
+    },
   },
   description: {
     type: String,
-    maxlength: [200, 'Description must be less than 200 characters long']
-  }
+    maxlength: [200, 'Description must be less than 200 characters long'],
+  },
 }, { timestamps: true });
 
 // Indexes
-itemSchema.index({ name: 1 }); 
+itemSchema.index({ name: 1 });
 
 const Item = mongoose.model('Item', itemSchema);
 
