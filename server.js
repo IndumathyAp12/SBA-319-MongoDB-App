@@ -14,7 +14,7 @@ const orderRouter = require('./routes/orders.js');
 
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
-app.use('/api', routes);
+
 
 //Custom Middlware
 app.use((req, res, next) => {
