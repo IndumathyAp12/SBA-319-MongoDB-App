@@ -1,4 +1,4 @@
-const mongoose = require('./config/db-connection');
+const mongoose = require('../config/db-connection.js');
 const Item = require('../models/Item.js');
 const User = require('../models/User.js');
 const Order = require('../models/Order.js');
@@ -8,27 +8,27 @@ const users = [
   {
     username: 'john_doe',
     email: 'john@example.com',
-    password: 'password123'
+    password: '4yihwfy83'
   },
   {
     username: 'jane_doe',
     email: 'jane@example.com',
-    password: 'password123'
+    password: '1243gdhwv'
   },
   {
     username: 'alice',
     email: 'alice@example.com',
-    password: 'password123'
+    password: 'dvwggf53363'
   },
   {
     username: 'bob',
     email: 'bob@example.com',
-    password: 'password123'
+    password: 'dhjdgu663wj'
   },
   {
     username: 'charlie',
     email: 'charlie@example.com',
-    password: 'password123'
+    password: 'p3eewyd6e3'
   }
 ];
 
